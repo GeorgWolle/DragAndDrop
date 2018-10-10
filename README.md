@@ -37,7 +37,7 @@ ImageView droppableView = findViewById(R.id.your_droppable_view_id);
 
 DragAndDropManager.with(draggableView)        // Initialize DragAndDropManager with your view
 	.makeDraggable()                      // Make it draggable
-	.addOnHover(droppableView,            // Optionally add a hover drawable for a specific droppable
+	.addOnHoverDrawable(droppableView,    // Optionally add a hover drawable for a specific droppable
              R.drawable.your_draggable_hover_drawable);
 
 // Make a View object droppable
@@ -50,7 +50,7 @@ DragAndDropManager.with(droppableView)                                    // Ini
 // If you need more control
 
 DragAndDropManager.with(droppableView)
-	.makeDroppable
+	.makeDroppable()
 	.setOnDragListener(new DragAndDroppable.OnDragListener() {
                     @Override
                     public boolean onDrag(DragAndDroppable dragAndDroppable, DragAndDropEvent dragEvent) {
