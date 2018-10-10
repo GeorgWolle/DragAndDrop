@@ -24,9 +24,9 @@ dependencies {
 
 # How do I use DragAndDrop?
 
-Init your view objects
-
 ```java
+
+// Init your view objects
 
 ImageView draggableView = findViewById(R.id.your_draggable_view_id);
 ImageView droppableView = findViewById(R.id.your_droppable_view_id);
@@ -78,5 +78,11 @@ DragAndDropManager.with(droppableView)
                 });
 
 // The DragAndDropEvent is quiet similar to (https://developer.android.com/reference/android/view/DragEvent).
+```
+# Author
 
+[Georg Wollmann](mailto:wollmann.georg@gmail.com)
 
+# License
+
+Apache 2.0. See the [LICENSE](/LICENSE) file for details.
