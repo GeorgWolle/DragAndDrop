@@ -77,6 +77,7 @@ public class DragAndDropManager {
                     ENTERED_DROPPABLE_LISTENER.onDrag(dragAndDroppable, new DragAndDropEvent(event, ACTION_DRAG_ENTERED));
                     ENTERED_DROPPABLE = dragAndDroppableIterator;
                     ENTERED_DROPPABLE.onDragHover();
+                    dragAndDroppable.onDragHover(ENTERED_DROPPABLE);
                     return;
                 }
                 // If ENTERED_DROPPABLE_LISTENER != null we've been hovered but exited the area
@@ -86,6 +87,7 @@ public class DragAndDropManager {
                     ENTERED_DROPPABLE_LISTENER.onDrag(dragAndDroppable, new DragAndDropEvent(event, ACTION_DRAG_EXITED));
                     ENTERED_DROPPABLE_LISTENER = null;
                     ENTERED_DROPPABLE.onDragExit();
+                    dragAndDroppable.onDragExit(ENTERED_DROPPABLE);
                 }
             }
             // If we're still here it's a normal ACTION_DRAG_LOCATION
@@ -110,6 +112,7 @@ public class DragAndDropManager {
             ENTERED_DROPPABLE_LISTENER.onDrag(dragAndDroppable, new DragAndDropEvent((event), ACTION_DROP));
             ENTERED_DROPPABLE_LISTENER = null;
             ENTERED_DROPPABLE.onDragExit();
+            dragAndDroppable.onDragExit(ENTERED_DROPPABLE);
             ENTERED_DROPPABLE = null;
         }
         DRAG_TARGET = null;

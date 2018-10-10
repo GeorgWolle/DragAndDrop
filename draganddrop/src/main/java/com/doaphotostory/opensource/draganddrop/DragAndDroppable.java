@@ -26,6 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.util.HashMap;
+
 import static android.view.MotionEvent.INVALID_POINTER_ID;
 
 /**
@@ -55,6 +57,7 @@ public class DragAndDroppable {
 
     // For ImageView's the original drawable and an optional hover drawable may be set
     private Drawable mOriginalDrawable;
+    private HashMap<Integer, Drawable> mOnHoverDrawables = new HashMap<>();
 
     // Boolean to set if it's a drag (it might be a click also)
     private boolean mDrag = false;
@@ -190,6 +193,31 @@ public class DragAndDroppable {
     }
 
     /**
+     * Callback that is called on drag hover
+     *
+     * @param droppable the droppable that's hovered
+     */
+    public void onDragHover(DragAndDroppable droppable) {
+        Drawable onHoverDrawable = null;
+        if((onHoverDrawable = mOnHoverDrawables.get(droppable.getView().getId())) != null) {
+            ((ImageView) mView).setImageDrawable(onHoverDrawable);
+        }
+    }
+
+    /**
+     * Callback that is called on drag exit
+     *
+     * @param droppable the droppable that's hovered
+     */
+    public void onDragExit(DragAndDroppable droppable) {
+        // This if statement just checks wether there's a droppable
+        // in the mOnHoverDrawables list (-> so we know the drawable was changed on this hover)
+        if(mOnHoverDrawables.get(droppable.getView().getId()) != null) {
+            ((ImageView) mView).setImageDrawable(mOriginalDrawable);
+        }
+    }
+
+    /**
      * Callback that is called on drag exit
      */
     public void onDragExit() {
@@ -254,6 +282,23 @@ public class DragAndDroppable {
             throw new IllegalStateException(EXCEPTION_ILLEGAL_STATE_NO_IMAGE_VIEW);
         mOriginalDrawable = ((ImageView) mView).getDrawable();
         mOnHoverDrawable = mContext.getResources().getDrawable(resID);
+        return this;
+    }
+
+    /**
+     * If the View is an ImageView an OnHoverDrawable may be set
+     * which is shown onHover of the Droppable
+     *
+     * @param onHoverTarget the onHover drawable
+     * @param resID the onHover drawable
+     * @return this for method chaining
+     * @throws IllegalStateException If the original view is no ImageView IllegalStateException is thrown
+     */
+    public DragAndDroppable addOnHoverDrawable(int onHoverTarget, int resID) throws IllegalStateException {
+        if (!(mView instanceof ImageView))
+            throw new IllegalStateException(EXCEPTION_ILLEGAL_STATE_NO_IMAGE_VIEW);
+        mOriginalDrawable = ((ImageView) mView).getDrawable();
+        mOnHoverDrawables.put(onHoverTarget, mContext.getResources().getDrawable(resID));
         return this;
     }
 

@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 .makeDraggable();
 
         DragAndDropManager.with(bluedroid)
+                .addOnHoverDrawable(R.id.trashcan, R.drawable.bluedroid_deny)
                 .makeDraggable();
 
         DragAndDropManager.with(trashcan)

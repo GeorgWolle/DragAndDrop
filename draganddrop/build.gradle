@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -37,7 +37,6 @@ buildscript {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -51,15 +50,18 @@ ext {
     bintrayName = 'DragAndDrop'
 
     publishedGroupId = 'com.doaphotostory.opensource'
-    libraryName = 'DragAndDrop'
+    PUBLISH_GROUP_ID = 'com.doaphotostory.opensource'
+    libraryName = 'draganddrop'
     artifact = 'draganddrop'
+    PUBLISH_ARTIFACT_ID = 'draganddrop'
 
-    libraryDescription = 'A simple and effective way to add DragAndDrop to your app!'
+    libraryDescription = 'A simple yet effective way to add DragAndDrop to your app!'
 
-    siteUrl = 'https://github.com/GeorgWolle'
-    gitUrl = 'https://github.com/GeorgWolle'
+    siteUrl = 'https://github.com/GeorgWolle/DragAndDrop'
+    gitUrl = 'https://github.com/GeorgWolle/DragAndDrop.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.0.2'
+    PUBLISH_VERSION = '0.0.2'
 
     developerId = 'georgwolle'
     developerName = 'Georg Wollmann'
