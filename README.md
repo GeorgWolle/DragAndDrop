@@ -1,17 +1,28 @@
 # DragAndDrop
 
-A simple yet effective way to add DragAndDrop to your Android app!
-
 [ ![Download](https://api.bintray.com/packages/georgwolle/DragAndDrop/DragAndDrop/images/download.svg) ](https://bintray.com/georgwolle/DragAndDrop/DragAndDrop/_latestVersion)
 
-![video of DragAndDrop in action](web/draganddrop_v2.gif)
+A simple yet effective way to add DragAndDrop to your Android app!
 
-# Introduction
+![video of DragAndDrop in action](web/draganddrop_v2.gif)
 
 The DragAndDrop framework is an easy to use android library to add drag and drop functionality to your app.
 Unlike the official android Drag and Drop implementation (https://developer.android.com/guide/topics/ui/drag-drop) it is primarily designed for UI actions. I.e. with google's drag & drop it's very hard to change drawables easily on drag and drop actions. This library handles it with ease.
 
-# Code
+# Download
+
+```gradle
+repositories {
+    google()
+    jcenter()
+}
+
+dependencies {
+  implementation 'com.doaphotostory.opensource:draganddrop:0.0.2'
+}
+```
+
+# How do I use DragAndDrop?
 
 Init your view objects
 
