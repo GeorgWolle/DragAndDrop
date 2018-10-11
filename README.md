@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.doaphotostory.opensource:draganddrop:0.0.2'
+  implementation 'com.doaphotostory.opensource:draganddrop:0.0.4'
 }
 ```
 
