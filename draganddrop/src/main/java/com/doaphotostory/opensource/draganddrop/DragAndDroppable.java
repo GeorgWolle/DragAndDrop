@@ -221,7 +221,9 @@ public class DragAndDroppable {
      * Callback that is called on drag exit
      */
     public void onDragExit() {
-        ((ImageView) mView).setImageDrawable(mOriginalDrawable);
+        // Check if the onHoverDrawable has been changed
+        if(mOnHoverDrawable != null)
+            ((ImageView) mView).setImageDrawable(mOriginalDrawable);
     }
 
     /**
@@ -289,7 +291,7 @@ public class DragAndDroppable {
      * If the View is an ImageView an OnHoverDrawable may be set
      * which is shown onHover of the Droppable
      *
-     * @param onHoverTarget the onHover drawable
+     * @param onHoverTarget the droppable view id
      * @param resID the onHover drawable
      * @return this for method chaining
      * @throws IllegalStateException If the original view is no ImageView IllegalStateException is thrown
@@ -300,6 +302,18 @@ public class DragAndDroppable {
         mOriginalDrawable = ((ImageView) mView).getDrawable();
         mOnHoverDrawables.put(onHoverTarget, mContext.getResources().getDrawable(resID));
         return this;
+    }
+
+    /**
+     * Simple overload method of addOnHoverDrawable(int, int)
+     *
+     * @param onHoverTargetView the droppable view
+     * @param resID the onHover drawable
+     * @return this for method chaining
+     * @throws IllegalStateException If the original view is no ImageView IllegalStateException is thrown
+     */
+    public DragAndDroppable addOnHoverDrawable(View onHoverTargetView, int resID) throws IllegalStateException {
+        return addOnHoverDrawable(onHoverTargetView.getId(), resID);
     }
 
     /**
