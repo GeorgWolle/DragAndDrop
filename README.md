@@ -9,6 +9,8 @@ A simple yet effective way to add DragAndDrop to your Android app!
 The DragAndDrop framework is an easy to use android library to add drag and drop functionality to your app.
 Unlike the official android Drag and Drop implementation (https://developer.android.com/guide/topics/ui/drag-drop) it is primarily designed for UI actions. I.e. with google's drag & drop it's very hard to change drawables easily on drag and drop actions. This library handles it with ease.
 
+This library is used in the app: [Picsel - Your free photostory app](https://play.google.com/store/apps/details?id=com.doaphotostory.picsel)
+
 # Download
 
 ```gradle
